@@ -137,7 +137,7 @@ object {
 
 #scene .container h1 {
     animation-name: scale;
-    animation-duration: 1s;
+    /* animation-duration: 1s; */
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
     animation-direction: alternate-reverse;

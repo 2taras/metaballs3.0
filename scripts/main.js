@@ -1,9 +1,11 @@
-import { Scene, Obj } from "./game/index.js"
+import { Scene, Obj, Multiplayer} from "./game/index.js"
 import SkinShop from "./skins/SkinShop.js"
+import * as Helpstuff from "./game/Helpstuff.js"
 
 let versionID = document.getElementById("versionID")
 let hardMobile = document.getElementById("hardMobile")
 let theme = document.getElementById("theme")
+window.user_id = Math.round(4294967294*Math.random())
 window.skins = document.querySelector(".skins")
 window.skinmenu = document.querySelector(".skinmenu")
 
@@ -14,6 +16,7 @@ window.livesMeter = document.getElementById("livesMeter")
 window.mobile = false
 
 window.highScore = 0
+window.ship_skin = "1"
 window.highMeter = document.getElementById("highScore")
 let muteButton = document.getElementById("muteButton")
 muteButton.addEventListener("click", muteUnMute)
@@ -29,15 +32,7 @@ let mute = true
 
 hardMobile.checked = mobile
 
-const gitVersion = new XMLHttpRequest()
-gitVersion.open(
-    "GET",
-    "https://api.github.com/repos/wowkoltyy/metaballs2.0/commits/main"
-)
-gitVersion.send()
-gitVersion.onreadystatechange = (e) => {
-    versionID.innerHTML = "v. 2.1." + gitVersion.responseText.substring(12, 19)
-}
+versionID.innerHTML = "v. 3.0.0 test"
 
 function switchMobile() {
     mobile = hardMobile.checked
@@ -57,7 +52,7 @@ function muteUnMute() {
 
 window.scene = new Scene()
 
-scene.highScoreRestore()
+Helpstuff.getScore(scene.highScoreSet)
 
 addEventListener("keydown", (e) => {
     scene.keys.add(e.code)
@@ -68,6 +63,12 @@ addEventListener("keyup", (e) => {
 addEventListener("mousemove", (e) => {
     scene.mouse.x = e.clientX
     scene.mouse.y = e.clientY
+})
+
+document.getElementById("online").addEventListener("click", () => {
+    if(typeof(window.scene) != "undefined" && typeof(window.multiplayer) == "undefined") {
+        window.multiplayer = new Multiplayer(window.scene)
+    }
 })
 
 window.parent.addEventListener("mousedown", () => {

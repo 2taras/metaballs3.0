@@ -3,11 +3,12 @@ import SetSkin from "./SetSkin.js"
 export default function () {
     ;[...document.getElementsByClassName("skin")].forEach((skin) => {
         let price = skin.getAttribute("price")
-        skin.addEventListener("click", () =>
-            window.highScore >= price
-                ? SetSkin(skin.getAttribute("objID"), skin.getAttribute("data"))
-                : null
-        )
+        skin.addEventListener("click", () => {
+            if(window.highScore >= price){
+                SetSkin(skin.getAttribute("objID"), skin.getAttribute("data"))
+                window.ship_skin = parseInt(skin.getAttribute("num_id"))
+            }
+        })
         let node = document
             .getElementById(skin.getAttribute("objID"))
             .cloneNode()

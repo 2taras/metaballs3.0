@@ -1,5 +1,6 @@
 import Obj from "./Obj.js"
 import Constants from "./Constants.js"
+import * as Helpstuff from "./Helpstuff.js"
 
 const {
     KEY_BOOST,
@@ -56,9 +57,12 @@ export default class Scene {
         }
         this.score.innerHTML = this.count
     }
-    highScoreRestore() {
-        window.window.highScore = Number(localStorage.getItem("highScore"))
+    highScoreSet(score) {
+        window.window.highScore = score
         window.window.highMeter.innerHTML = window.window.highScore
+    }
+    highScoreGet() {
+        return parseInt(window.window.highScore)
     }
     add(obj) {
         this.objects.add(obj)
@@ -293,7 +297,7 @@ export default class Scene {
             }
             delete this.ship
             this.running = false
-            localStorage.setItem("highScore", "" + window.window.highScore);
+            Helpstuff.putScore(this.highScoreGet())
             window.parent.classList.remove("playing")
             window.skins.classList.remove("hide")
         }

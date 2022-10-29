@@ -1,6 +1,10 @@
 export default class Obj {
     constructor(id) {
         this.id = id
+        this.num_id = parseInt(document.getElementById(id).getAttribute("num_id"))
+        this.user_id = window.user_id
+        this.object_id = Math.round(4294967294*Math.random())
+
         this.element = document.getElementById(id).cloneNode()
 
         this.element.onload = () => {

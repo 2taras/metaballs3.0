@@ -48,7 +48,7 @@
                     <button
                         class="controls"
                         style="height: 100%"
-                        onclick="window.location.href='/online'"
+                        id="online"
                     >
                         Multiplayer
                     </button>
@@ -90,68 +90,86 @@
             <datalist>
                 <object
                     id="ship"
+                    num_id="1"
                     data="graphics/ship.svg"
                     type="image/svg+xml"
                 ></object>
                 <object
                     id="ufo"
+                    num_id="2"
                     data="graphics/ufo.svg"
                     type="image/svg+xml"
                 ></object>
                 <object
                     id="missile"
+                    num_id="3"
                     data="graphics/missile.svg"
                     type="image/svg+xml"
                 ></object>
                 <object
                     id="laser"
+                    num_id="4"
                     data="graphics/laser.svg"
                     type="image/svg+xml"
                 ></object>
                 <object
                     id="mylaser"
+                    num_id="5"
                     data="graphics/mylaser.svg"
                     type="image/svg+xml"
                 ></object>
                 <object
                     id="mymissile"
+                    num_id="6"
                     data="graphics/mymissile.svg"
                     type="image/svg+xml"
                 ></object>
                 <object
                     id="shield"
+                    num_id="7"
                     data="graphics/shield.svg"
                     type="image/svg+xml"
                 ></object>
                 <object
                     id="border"
+                    num_id="8"
                     data="graphics/border.svg"
                     type="image/svg+xml"
                 ></object>
             </datalist>
             <object
                 id="target"
+                num_id="9"
                 data="graphics/target.svg"
                 type="image/svg+xml"
             ></object>
         </div>
         <div class="skins hide">Skins</div>
         <div class="skinmenu hide">
-            <div class="skin" data="ship.svg" objID="ship" price="0"></div>
+            <div 
+                class="skin" 
+                num_id="1"
+                data="ship.svg" 
+                objID="ship" 
+                price="0"
+            ></div>
             <div
                 class="skin"
+                num_id="2"
                 data="other-ship-efim.svg"
                 objID="ship"
                 price="250"
             ></div>
             <div
                 class="skin"
+                num_id="3"
                 data="other-ship-taras.svg"
                 objID="ship"
                 price="500"
             ></div>
             <div
                 class="skin"
+                num_id="4"
                 data="aerosmith.svg"
                 objID="ship"
                 price="750"
