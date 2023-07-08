@@ -2,4 +2,4 @@
 
 Metaballs is super op meta balls meta game
 
-## [Play here](https://metaballs.cf/ "WebSite")
+## [Play here](https://balls.metagames.cf/ "WebSite")
